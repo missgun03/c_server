@@ -16,7 +16,7 @@ print('Ip Address of the Server::%s'%ip)
 def handleClient(client, uname):
     clientConnected = True
     keys = clients.keys()
-    help = 'There are four commands in Messenger\n1::@chatlist=>gives you the list of the people currently online\n2::@quit=>To end your session\n3::@broadcast=>To broadcast your message to each and every person currently present online\n4::Add the name of the person at the end of your message preceded by @ to send it to particular person'
+    help = 'There are four commands in Messenger\n1::@chatlist=>gives you the list of the people currently online\n2::@quit=>To end your session\n3::@all=>To broadcast your message to each and every person currently present online\n4::Add the name of the person at the end of your message preceded by @ to send it to particular person'
 
     while clientConnected:
         try:
@@ -48,7 +48,7 @@ def handleClient(client, uname):
                         clients.get(name).send(msg.encode('utf-8'))
                         found = True
                 if(not found):
-                    client.send('Trying to send message to invalid person.'.encode('ascii'))
+                    client.send('Trying to send message to invalid person.'.encode('utf-8'))
         except:
             clients.pop(uname)
             print(uname + ' has been logged out')
